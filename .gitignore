@@ -1,0 +1,32 @@
+# Ambiente / segredos
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Dados de runtime do Neo4j (montados pelo docker-compose)
+neo4j/
+import/
+
+# Cache de modelos HuggingFace baixados localmente
+.cache/
+models/
+
+# Respostas geradas em execução (mantemos a pasta, ignoramos os .md gerados)
+respostas/*.md
+!respostas/.gitkeep
+
+# SO / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
