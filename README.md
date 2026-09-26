@@ -85,6 +85,47 @@ Na primeira execução o modelo de embeddings é baixado do HuggingFace (alguns 
 
 ---
 
+## Exemplo de saída
+
+Ao rodar `python -m src.main`, o pipeline indexa o PDF e processa cada pergunta:
+
+```text
+🚀 Inicializando sistema de Embeddings com Neo4j...
+
+📄 Carregadas 7 páginas do PDF
+✂️  Dividido em 19 chunks
+🗑️  Removendo todos os documentos existentes...
+✅ Documentos removidos com sucesso
+
+✅ Base de dados populada com sucesso!
+
+🔍 ETAPA 2: Executando buscas por similaridade...
+
+================================================================================
+📌 PERGUNTA: Como converter objetos JavaScript em tensores?
+================================================================================
+🔍 Buscando no vector store do Neo4j...
+✅ Encontrados 3 resultados relevantes (melhor score: 0.771)
+🤖 Gerando resposta com IA...
+
+✅ Processamento concluído com sucesso!
+```
+
+Cada resposta também é salva em `respostas/resposta-<indice>-<timestamp>.md`. Exemplo (trecho de `resposta-0`):
+
+> Para converter objetos JavaScript em tensores utilizando TensorFlow.js, você precisa
+> transformar esses objetos em uma estrutura que contenha apenas números, já que os
+> tensores são representações numéricas. (...)
+>
+> ```javascript
+> const pessoas = [
+>   { nome: "Erick", idade: 30, cor: "azul", localizacao: "São Paulo" },
+>   { nome: "Ana", idade: 25, cor: "vermelho", localizacao: "Rio" },
+> ];
+> ```
+
+---
+
 ## Configuração
 
 Todas as variáveis ficam em `.env` (veja `.env.example`):
