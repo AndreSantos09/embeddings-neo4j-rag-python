@@ -9,6 +9,10 @@
 
 > A Python RAG (Retrieval-Augmented Generation) pipeline that indexes a PDF into a Neo4j vector store using local embeddings and answers questions with an LLM via OpenRouter. Python port of the original TypeScript example.
 
+![Flow demo](docs/demo.gif)
+
+> Can't see the GIF above? It is generated locally from `scripts/demo.py` — see [scripts/record-demo.md](scripts/record-demo.md).
+
 ---
 
 ## Architecture
@@ -157,6 +161,11 @@ embeddings-neo4j-rag-python/
 │   ├── answerPrompt.json    # role, task, instructions and constraints
 │   └── template.txt         # final prompt template
 ├── respostas/               # generated answers (.md)
+├── scripts/                 # cinematic demo (see record-demo.md)
+│   ├── demo.py              # runs the full flow with narration
+│   ├── demo_run.sh          # spins up isolated Neo4j, runs the demo and cleans up
+│   ├── demo.tape            # VHS script to generate the GIF
+│   └── record-demo.md       # how to re-record docs/demo.gif
 └── src/
     ├── config.py            # central configuration
     ├── document_processor.py# PDF loading + chunking
